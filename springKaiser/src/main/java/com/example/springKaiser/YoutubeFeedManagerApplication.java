@@ -14,7 +14,7 @@ public class YoutubeFeedManagerApplication {
 	}
 
 	public static int returnYoutubeFeed(){
-		return 9;
+		return 8;
 	}
 
 }

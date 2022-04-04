@@ -11,10 +11,15 @@ public class YoutubeFeedManagerApplication {
 		System.out.println("lol");
 		int youtubeFeedCount = this.returnYoutubeFeed();
 		System.out.println(youtubeFeedCount);
+		String youtubeDescription = this.returnYoutubePics();
 	}
 
 	public static int returnYoutubeFeed(){
 		return 10;
+	}
+
+	public String returnYoutubePics() {
+		return "Yes"
 	}
 
 }

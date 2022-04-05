@@ -9,17 +9,17 @@ public class YoutubeFeedManagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(YoutubeFeedManagerApplication.class, args);
 		System.out.println("lol");
-		int youtubeFeedCount = this.returnYoutubeFeed();
+		int youtubeFeedCount = returnYoutubeFeed();
 		System.out.println(youtubeFeedCount);
-		String youtubeDescription = this.returnYoutubePics();
+		String youtubeDescription = returnYoutubePics();
 	}
 
 	public static int returnYoutubeFeed(){
 		return 10;
 	}
 
-	public String returnYoutubePics() {
-		return "Yes"
+	public static String returnYoutubePics() {
+		return "Yes";
 	}
 
 }

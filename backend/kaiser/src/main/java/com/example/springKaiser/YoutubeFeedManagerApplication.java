@@ -15,7 +15,7 @@ public class YoutubeFeedManagerApplication {
 	}
 
 	public static int returnYoutubeFeed(){
-		return 10;
+		return 8;
 	}
 
 	public static String returnYoutubePics() {

@@ -1,1 +1,0 @@
-CREATE TABLE subscriberTable (subscribers_id INT, subscriber_name VARCHAR, PRIMARY KEY (subscribers_id))

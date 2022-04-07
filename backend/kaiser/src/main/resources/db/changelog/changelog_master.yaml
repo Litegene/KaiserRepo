@@ -3,3 +3,5 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/0_test.sql
               - include:
                   file: classpath:db/changelog/scripts/1_insertCounter.sql
+              - include:
+                  file: classpath:db/changelog/scripts/2_subscriber_details.sql

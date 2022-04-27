@@ -19,4 +19,20 @@ public class Subscriber {
         this.subscriber_id = id;
         this.subscriber_name = name;
     }
+
+    public Integer getSubscriber_id() {
+        return subscriber_id;
+    }
+
+    public void setSubscriber_id(Integer subscriber_id) {
+        this.subscriber_id = subscriber_id;
+    }
+
+    public String getSubscriber_name() {
+        return subscriber_name;
+    }
+
+    public void setSubscriber_name(String subscriber_name) {
+        this.subscriber_name = subscriber_name;
+    }
 }

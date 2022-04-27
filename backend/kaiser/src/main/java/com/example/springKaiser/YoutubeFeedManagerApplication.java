@@ -2,14 +2,13 @@ package com.example.springKaiser;
 
 import com.example.springKaiser.entities.Students;
 import com.example.springKaiser.entities.Subscriber;
-import com.example.springKaiser.repositories.StudentRepository;
+import com.example.springKaiser.repositories.StudentsRepository;
 import com.example.springKaiser.repositories.SubscriberRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.util.stream.Stream;
 
@@ -21,12 +20,12 @@ public class YoutubeFeedManagerApplication {
 	}
 
 	@Bean
-	ApplicationRunner init(StudentRepository repository) {
+	ApplicationRunner init(StudentsRepository repository) {
 
 		String[][] data = {
-				{"1", "Andrew", "andrew@andrew.com"},
-				{"2", "Charlie", "charlie@whyamIhere.com",},
-				{"3", "Kai", "kai@kaifactory.com",}
+				{"1", "Andrew", "andrew@andrew.com", "1"},
+				{"2", "Charlie", "charlie@whyamIhere.com", "2"},
+				{"3", "Kai", "kai@kaifactory.com", "1"}
 		};
 
 		return args -> {
@@ -35,7 +34,8 @@ public class YoutubeFeedManagerApplication {
 					Students students = new Students(
 							Integer.parseInt(array[0]),
 							array[1],
-							array[2]
+							array[2],
+							Integer.parseInt(array[3])
 					);
 					repository.save(students);
 				}

@@ -27,5 +27,4 @@ public class SubscriberController {
 
         return totalStrings;
     }
-
 }

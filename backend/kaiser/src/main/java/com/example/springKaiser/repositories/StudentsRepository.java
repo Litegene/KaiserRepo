@@ -3,6 +3,8 @@ package com.example.springKaiser.repositories;
 import com.example.springKaiser.entities.Students;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StudentRepository extends JpaRepository<Students, Integer> {
+//Repositories manage the persisting (Saving) of data into our databases
+
+public interface StudentsRepository extends JpaRepository<Students, Integer> {
 
 }

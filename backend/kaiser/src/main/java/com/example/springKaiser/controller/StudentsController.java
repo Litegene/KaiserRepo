@@ -44,5 +44,11 @@ public class StudentsController {
         studentsService.saveStudentOnGradeOne(students);
     }
 
+//    adds any student details
+//    @PostMapping("/addStudentOnGradeOne")
+//    public void addStudentOnGradeOne(@RequestBody Students students){
+//        studentsService.saveStudent(students);
+//    }
+
 
 }

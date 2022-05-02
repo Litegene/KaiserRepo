@@ -7,3 +7,7 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/2_subscribers_details.sql
               - include:
                   file: classpath:db/changelog/scripts/3_student.sql
+              - include:
+                  file: classpath:db/changelog/scripts/4_addGradetoStudents.sql
+              - include:
+                  file: classpath:db/changelog/scripts/5_video.sql

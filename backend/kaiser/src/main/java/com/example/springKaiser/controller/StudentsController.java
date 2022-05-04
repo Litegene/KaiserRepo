@@ -50,5 +50,10 @@ public class StudentsController {
 //        studentsService.saveStudent(students);
 //    }
 
+    @GetMapping("/findStudentByEmail/{emailAddress}")
+    public List<Students> getStudentsByEmail(@PathVariable String email) {
+        return studentsService.findStudentByEmail(email);
+    }
+
 
 }

@@ -17,6 +17,6 @@ public interface StudentsRepository extends JpaRepository<Students, Integer> {
     */
     List<Students> findByEmail(String email);
 
-    @Query(value = "select * FROM teachers a JOIN grades g ON a.agent_id = a.id WHERE s.application_number = :applicationNumber", nativeQuery = true)
-    List<Teachers> findTeacherByStudentNameAndEmail(String studentName, String email);
+//    @Query(value = "select * FROM teachers a JOIN grades g ON a.agent_id = a.id WHERE s.application_number = :applicationNumber", nativeQuery = true)
+//    List<Teachers> findTeacherByStudentNameAndEmail(String studentName, String email);
 }

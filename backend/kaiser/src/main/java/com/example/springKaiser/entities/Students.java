@@ -15,23 +15,21 @@ public class Students {
     private Integer id;
     private String name;
     private String email;
-    private Integer grade;
+    @ManyToOne
+    @JoinColumn(name = "grade_id")
+    private Grades grade;
+    @ManyToOne
+    @JoinColumn(name = "home_grade_teacher_id")
+    private Teachers homeGradeTeacher;
 
     public Students(){}
 
-    public Students(Integer id, String name, String email, Integer grade) {
+    public Students(Integer id, String name, String email, Grades grade, Teachers teachers) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.grade = grade;
-    }
-
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Integer grade) {
-        this.grade = grade;
+        this.homeGradeTeacher = teachers;
     }
 
     public Integer getId() {
@@ -56,5 +54,21 @@ public class Students {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Grades getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Grades grade) {
+        this.grade = grade;
+    }
+
+    public Teachers getHomeGradeTeacherId() {
+        return homeGradeTeacher;
+    }
+
+    public void setHomeGradeTeacherId(Teachers homeGradeTeacherId) {
+        this.homeGradeTeacher = homeGradeTeacherId;
     }
 }

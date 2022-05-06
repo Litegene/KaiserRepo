@@ -3,9 +3,9 @@ package com.example.springKaiser;
 import com.example.springKaiser.entities.Students;
 import com.example.springKaiser.entities.Subscriber;
 import com.example.springKaiser.entities.Video;
-import com.example.springKaiser.repositories.StudentsRepository;
-import com.example.springKaiser.repositories.SubscriberRepository;
-import com.example.springKaiser.repositories.VideoRepository;
+import com.example.springKaiser.repositories.*;
+import lombok.Builder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,7 +15,14 @@ import org.springframework.context.annotation.Bean;
 import java.util.stream.Stream;
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@Builder
 public class YoutubeFeedManagerApplication {
+
+	@Autowired
+	GradeRepository gradeRepository;
+
+	@Autowired
+	TeacherRepository teacherRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(YoutubeFeedManagerApplication.class, args);
@@ -25,9 +32,9 @@ public class YoutubeFeedManagerApplication {
 	ApplicationRunner init(StudentsRepository repository) {
 
 		String[][] data = {
-				{"1", "Andrew", "andrew@andrew.com", "1"},
-				{"2", "Charlie", "charlie@whyamIhere.com", "2"},
-				{"3", "Kai", "kai@kaifactory.com", "1"}
+				{"1", "Andrew", "andrew@andrew.com", "1", "1"},
+				{"2", "Charlie", "charlie@whyamIhere.com", "2", "2"},
+				{"3", "Kai", "kai@kaifactory.com", "1", "3"}
 		};
 
 		return args -> {
@@ -37,7 +44,8 @@ public class YoutubeFeedManagerApplication {
 							Integer.parseInt(array[0]),
 							array[1],
 							array[2],
-							Integer.parseInt(array[3])
+							gradeRepository.findById(Integer.parseInt(array[3])).get(),
+							teacherRepository.findById(Integer.parseInt(array[4])).get()
 					);
 					repository.save(students);
 				}

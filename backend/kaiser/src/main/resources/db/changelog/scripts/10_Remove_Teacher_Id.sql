@@ -1,4 +1,4 @@
-ALTER TABLE students DROP COLUMN teachers_id;
+ALTER TABLE students DROP COLUMN if exists teachers_id;
 
 update public.students set grade_id = 1 where name = 'Andrew';
 update public.students set grade_id = 2 where name = 'Charlie';

@@ -19,3 +19,9 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/8_Adding_Teacher_Data.sql
               - include:
                   file: classpath:db/changelog/scripts/9_Removing_Grade.sql
+              - include:
+                  file: classpath:db/changelog/scripts/10_Remove_Teacher_Id.sql
+              - include:
+                  file: classpath:db/changelog/scripts/11_channel.sql
+              - include:
+                  file: classpath:db/changelog/scripts/12_addChannelData.sql

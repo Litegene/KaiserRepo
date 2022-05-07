@@ -39,7 +39,7 @@ public class StudentsService {
 
     public String saveStudentOnGradeOne(Students students){
         //We only save grades 1
-        if(students.getGrade() == gradeRepository.findById(1).get()){
+        if (students.getGrade().getId().equals(gradeRepository.findById(1).get().getId()) && students.getGrade().getDescription().equals(gradeRepository.findById(1).get().getDescription())){
             saveStudent(students);
         }
         return "Success" + students.getName() + " is saved";

@@ -12,6 +12,7 @@ public class Students {
     //So if you change the db table you gotta change the entity
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;

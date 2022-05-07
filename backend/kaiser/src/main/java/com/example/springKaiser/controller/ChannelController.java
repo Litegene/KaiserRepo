@@ -36,8 +36,7 @@ public class ChannelController {
         try{
             channelService.saveChannel(channel);
         } catch (Exception e){
-            String error = e.getMessage();
-            return error;
+            return "Failure " + e.getMessage();
         }
         return "Added succesfully";
     }

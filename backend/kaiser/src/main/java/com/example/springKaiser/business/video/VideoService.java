@@ -1,6 +1,5 @@
 package com.example.springKaiser.business.video;
 
-import com.example.springKaiser.entities.Students;
 import com.example.springKaiser.entities.Video;
 import com.example.springKaiser.repositories.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

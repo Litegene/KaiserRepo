@@ -8,6 +8,7 @@ import lombok.Data;
 @Table(name = "channeltable",schema="public")
 public class Channel {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String channelname;
     private String playlist;

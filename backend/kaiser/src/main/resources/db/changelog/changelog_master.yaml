@@ -29,3 +29,7 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/13_Adding_Auto_Increment_Id.sql
               - include:
                   file: classpath:db/changelog/scripts/14_Changing_Sequence_Value.sql
+              - include:
+                  file: classpath:db/changelog/scripts/15_editchanneltable.sql
+              - include:
+                  file: classpath:db/changelog/scripts/16_addvideoandchanneldata.sql

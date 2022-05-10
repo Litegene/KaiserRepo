@@ -7,3 +7,25 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/2_subscribers_details.sql
               - include:
                   file: classpath:db/changelog/scripts/3_student.sql
+              - include:
+                  file: classpath:db/changelog/scripts/4_addGradetoStudents.sql
+              - include:
+                  file: classpath:db/changelog/scripts/5_video.sql
+              - include:
+                  file: classpath:db/changelog/scripts/6_teachers.sql
+              - include:
+                  file: classpath:db/changelog/scripts/7_student_teacher_constraints.sql
+              - include:
+                  file: classpath:db/changelog/scripts/8_Adding_Teacher_Data.sql
+              - include:
+                  file: classpath:db/changelog/scripts/9_Removing_Grade.sql
+              - include:
+                  file: classpath:db/changelog/scripts/10_Remove_Teacher_Id.sql
+              - include:
+                  file: classpath:db/changelog/scripts/11_channel.sql
+              - include:
+                  file: classpath:db/changelog/scripts/12_addChannelData.sql
+              - include:
+                  file: classpath:db/changelog/scripts/13_Adding_Auto_Increment_Id.sql
+              - include:
+                  file: classpath:db/changelog/scripts/14_Changing_Sequence_Value.sql

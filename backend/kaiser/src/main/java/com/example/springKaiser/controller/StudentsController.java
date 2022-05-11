@@ -1,5 +1,6 @@
 package com.example.springKaiser.controller;
 
+import com.example.springKaiser.business.student.StudentDto;
 import com.example.springKaiser.business.student.StudentsService;
 import com.example.springKaiser.entities.Students;
 import com.example.springKaiser.repositories.StudentsRepository;
@@ -40,8 +41,8 @@ public class StudentsController {
     }
 
     @PostMapping("/addStudentOnGradeOne")
-    public void addStudentOnGradeOne(@RequestBody Students students){
-        studentsService.saveStudentOnGradeOne(students);
+    public String addStudentOnGradeOne(@RequestBody Students students){
+        return studentsService.saveStudentOnGradeOne(students);
     }
 
 //    adds any student details
@@ -53,6 +54,11 @@ public class StudentsController {
     @GetMapping("/findStudentByEmail/{emailAddress}")
     public List<Students> getStudentsByEmail(@PathVariable String email) {
         return studentsService.findStudentByEmail(email);
+    }
+
+    @PostMapping("/saveStudentDto")
+    public String addStudents(@RequestBody StudentDto studentDto) {
+        return studentsService.saveStudent(studentDto);
     }
 
 

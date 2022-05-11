@@ -65,11 +65,11 @@ public class Students {
         this.grade = grade;
     }
 
-    public Teachers getHomeGradeTeacherId() {
+    public Teachers getHomeGradeTeacher() {
         return homeGradeTeacher;
     }
 
-    public void setHomeGradeTeacherId(Teachers homeGradeTeacherId) {
-        this.homeGradeTeacher = homeGradeTeacherId;
+    public void setHomeGradeTeacher(Teachers homeGradeTeacher) {
+        this.homeGradeTeacher = homeGradeTeacher;
     }
 }

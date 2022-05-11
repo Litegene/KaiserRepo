@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "videotable",schema="public")
+@Table(name = "videotable", schema = "public")
 public class Video {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,9 +16,10 @@ public class Video {
     private Integer views;
     @ManyToOne
     @JoinColumn(name = "channelID")
-    private  Channel channel;
+    private Channel channel;
 
-    public Video(){}
+    public Video() {
+    }
 
     public Video(Integer id, String name, Integer comments, Integer likes, Channel channel, Integer views) {
         this.id = id;

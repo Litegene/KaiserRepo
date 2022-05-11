@@ -3,8 +3,10 @@ package com.example.springKaiser.business.student;
 
 import com.example.springKaiser.entities.Grades;
 import com.example.springKaiser.entities.Students;
+import com.example.springKaiser.entities.Teachers;
 import com.example.springKaiser.repositories.GradeRepository;
 import com.example.springKaiser.repositories.StudentsRepository;
+import com.example.springKaiser.repositories.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class StudentsService {
     @Autowired
     GradeRepository gradeRepository;
 
+    @Autowired
+    TeacherRepository teacherRepository;
+
+    final int gradeOne = 1;
+
     public String saveStudentOnGrade(){
         Students students = new Students();
         students.setId(0);
@@ -37,12 +44,29 @@ public class StudentsService {
         return students.getName() + " has been added with grade" + students.getGrade();
     }
 
-    public String saveStudentOnGradeOne(Students students){
+    public String saveStudentOnGradeOne(Students students) {
         //We only save grades 1
-        if (students.getGrade().getId().equals(gradeRepository.findById(1).get().getId()) && students.getGrade().getDescription().equals(gradeRepository.findById(1).get().getDescription())){
-            saveStudent(students);
+        try {
+            if (students.getGrade().getGradenumber() == gradeOne) {
+                saveStudent(students);
+                return "Success" + students.getName() + " is saved";
+            }
+        } catch (Exception e) {
+            return "Failed to save " + students.getName() + " " + e.getMessage();
         }
-        return "Success" + students.getName() + " is saved";
+        return "Failed to save" + students.getName();
+    }
+
+    public String saveStudent(StudentDto studentDto){
+        Students student = new Students();
+        student.setEmail(studentDto.getEmail());
+        student.setName(studentDto.getName());
+        Grades grade = gradeRepository.findById(studentDto.getGradeId()).get();
+        student.setGrade(grade);
+        Teachers teacher = teacherRepository.findById(studentDto.getHomeGradeTeacherId()).get();
+        student.setHomeGradeTeacher(teacher);
+        studentsRepository.save(student);
+        return "Success " + student.getName();
     }
 
     public void saveStudent(Students students){

@@ -18,22 +18,22 @@ public class VideoController {
 
 
     //Get, Update, Post and Put
-    //Get is a retrieval
-    //Post is like a save, but more data involved
-    //Put is an update I think? google it bro
+        //Get is a retrieval
+        //Post is like a save, but more data involved
+        //Put is an update I think? google it bro
 
-    @GetMapping("/videoList")
-    public List<Video> listVideo() {
-        return videoService.listVideo();
-    }
+        @GetMapping("/videoList")
+        public List<Video> listVideo() {
+            return videoService.listVideo();
+        }
 
-    @GetMapping("/listVideoByChannel/{channelName}")
-    public List<Video> listByChannel(@PathVariable String channelName){
-        return videoService.listByChannel(channelName);
-    }
+        @GetMapping("/listVideoByChannel/{channelName}")
+        public List<Video> listByChannel(@PathVariable String channelName){
+            return videoService.listByChannel(channelName);
+        }
 
-    @PostMapping("/saveVideo")
-    public void saveVideo(@RequestBody Video video){
-        videoService.saveVideo(video);
+        @PostMapping("/saveVideo")
+        public void saveVideo(@RequestBody Video video){
+            videoService.saveVideo(video);
     }
 }

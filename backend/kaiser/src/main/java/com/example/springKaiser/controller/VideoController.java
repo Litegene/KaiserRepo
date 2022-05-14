@@ -23,18 +23,9 @@ public class VideoController {
         //Post is like a save, but more data involved
         //Put is an update I think? google it bro
 
-//        @GetMapping("/videoList")
-//        public List<Video> listVideo() {
-//            return videoService.listVideo();
-//        }
-
-//        @GetMapping("/videoList")
-//        public String listVideo(@RequestBody VideoDto videoDto) {
-//            return videoService.listVideo(videoDto);
-//        }
-
         @GetMapping("/videoList")
         public List<Video> listVideo() {
+
             return videoService.listVideo();
         }
 

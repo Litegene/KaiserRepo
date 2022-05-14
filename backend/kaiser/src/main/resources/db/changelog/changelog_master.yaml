@@ -33,3 +33,5 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/15_editchanneltable.sql
               - include:
                   file: classpath:db/changelog/scripts/16_addvideoandchanneldata.sql
+              - include:
+                  file: classpath:db/changelog/scripts/17_addchannelid.sql

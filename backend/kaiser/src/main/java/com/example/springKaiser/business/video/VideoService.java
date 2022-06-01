@@ -79,10 +79,7 @@ public class VideoService {
     public String saveVideos(VideoDto videoDto){
         Video video = new Video();
         video.setName(videoDto.getName());
-//        private int comments;
-//        private int likes;
-//        private int views;
-//        private int channelId;
+
         video.setComments(videoDto.getComments());
         video.setLikes(videoDto.getLikes());
         video.setViews(videoDto.getViews());

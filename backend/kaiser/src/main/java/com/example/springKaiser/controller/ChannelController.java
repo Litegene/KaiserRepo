@@ -28,6 +28,7 @@ public class ChannelController {
 
     @GetMapping("/listAbout/{channelName}")
     public String listChannelAbout(@PathVariable String channelName){
+
         return channelService.about(channelName);
     }
 

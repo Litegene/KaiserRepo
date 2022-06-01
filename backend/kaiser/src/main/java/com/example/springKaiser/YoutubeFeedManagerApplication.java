@@ -28,62 +28,62 @@ public class YoutubeFeedManagerApplication {
 		SpringApplication.run(YoutubeFeedManagerApplication.class, args);
 	}
 
-	@Bean
-	ApplicationRunner init(StudentsRepository repository) {
+//	@Bean
+//	ApplicationRunner init(StudentsRepository repository) {
+//
+//		String[][] data = {
+//				{"1", "Andrew", "andrew@andrew.com", "1", "1"},
+//				{"2", "Charlie", "charlie@whyamIhere.com", "2", "2"},
+//				{"3", "Kai", "kai@kaifactory.com", "1", "3"}
+//		};
+//
+//		return args -> {
+//			Stream.of(data).forEach(array -> {
+//				try {
+//					Students students = new Students(
+//							Integer.parseInt(array[0]),
+//							array[1],
+//							array[2],
+//							gradeRepository.findById(Integer.parseInt(array[3])).get(),
+//							teacherRepository.findById(Integer.parseInt(array[4])).get()
+//					);
+//					repository.save(students);
+//				}
+//				catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			});
+//			repository.findAll().forEach(System.out::println);
+//		};
+//	}
 
-		String[][] data = {
-				{"1", "Andrew", "andrew@andrew.com", "1", "1"},
-				{"2", "Charlie", "charlie@whyamIhere.com", "2", "2"},
-				{"3", "Kai", "kai@kaifactory.com", "1", "3"}
-		};
-
-		return args -> {
-			Stream.of(data).forEach(array -> {
-				try {
-					Students students = new Students(
-							Integer.parseInt(array[0]),
-							array[1],
-							array[2],
-							gradeRepository.findById(Integer.parseInt(array[3])).get(),
-							teacherRepository.findById(Integer.parseInt(array[4])).get()
-					);
-					repository.save(students);
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			});
-			repository.findAll().forEach(System.out::println);
-		};
-	}
-
-	@Bean
-	ApplicationRunner initSubscriber(SubscriberRepository repository) {
-
-		String[][] data = {
-				{"1", "Andrew"},
-				{"2", "Charlie"},
-				{"3", "Kai"},
-				{"4", "Matthew"},
-				{"5", "Hyper Potions"}
-		};
-
-		return args -> {
-			Stream.of(data).forEach(array -> {
-				try {
-					Subscriber subscriber = new Subscriber(
-							Integer.parseInt(array[0]),
-							array[1]
-					);
-					repository.save(subscriber);
-				}
-				catch (Exception e) {
-					e.printStackTrace();
-				}
-			});
-			repository.findAll().forEach(System.out::println);
-		};
-	}
+//	@Bean
+//	ApplicationRunner initSubscriber(SubscriberRepository repository) {
+//
+//		String[][] data = {
+//				{"1", "Andrew"},
+//				{"2", "Charlie"},
+//				{"3", "Kai"},
+//				{"4", "Matthew"},
+//				{"5", "Hyper Potions"}
+//		};
+//
+//		return args -> {
+//			Stream.of(data).forEach(array -> {
+//				try {
+//					Subscriber subscriber = new Subscriber(
+//							Integer.parseInt(array[0]),
+//							array[1]
+//					);
+//					repository.save(subscriber);
+//				}
+//				catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			});
+//			repository.findAll().forEach(System.out::println);
+//		};
+//	}
 
 //	@Bean
 //	ApplicationRunner initVideo(VideoRepository repository) {

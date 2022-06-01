@@ -31,6 +31,7 @@ public class VideoController {
 
         @GetMapping("/videoListDto")
         public List<VideoDto> listVideoDto() {
+
             return videoService.listVideoDto();
         }
 
@@ -46,11 +47,13 @@ public class VideoController {
 
         @PostMapping("/saveVideo")
         public void saveVideo(@RequestBody Video video){
+
             videoService.saveVideo(video);
         }
 
         @PostMapping("/saveVideoDto")
         public String saveVideoDto(@RequestBody VideoDto videoDto){
+
             return videoService.saveVideos(videoDto);
         }
 }

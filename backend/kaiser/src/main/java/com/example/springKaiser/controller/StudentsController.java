@@ -61,5 +61,9 @@ public class StudentsController {
         return studentsService.saveStudent(studentDto);
     }
 
+    @GetMapping("/getStudentDtoList")
+    public List<StudentDto> getStudentsDtos() {
+        return studentsService.getListOfStudents();
+    }
 
 }

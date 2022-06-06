@@ -27,39 +27,39 @@ public class PlaylistService {
     VideoRepository videoRepository;
 
 
-    public void addPlaylist(PlaylistName playlistName){
+    public void addPlaylist(PlaylistName playlistName) {
 
         playlistNameRepository.save(playlistName);
     }
 
-    public void addVideo(PlaylistVideo playlistVideo){
+    public void addVideo(PlaylistVideo playlistVideo) {
 
         playlistVideoRepository.save(playlistVideo);
     }
 
-    public List<PlaylistName> listPlaylist(){
+    public List<PlaylistName> listPlaylist() {
         List<PlaylistName> listPlaylistName = playlistNameRepository.findAll();
         return listPlaylistName;
     }
 
-    public List<PlaylistName> sortPlaylist(){
+    public List<PlaylistName> sortPlaylist() {
         List<PlaylistName> listByPlaylistName = playlistNameRepository.findAll();
         List<PlaylistName> sortList = listByPlaylistName.stream().sorted(Comparator.comparing(PlaylistName::getPlaylistname)).collect(Collectors.toList());
         return sortList;
     }
 
-    public List<PlaylistVideo> listPlaylistVideo(){
+    public List<PlaylistVideo> listPlaylistVideo() {
         List<PlaylistVideo> listPlaylistVideo = playlistVideoRepository.findAll();
         return listPlaylistVideo;
     }
 
-        public String countPlaylist(String playlistName){
-        List<PlaylistVideo> listByPlaylistVideo =playlistVideoRepository.findByPlaylistName(playlistName);
+    public String countPlaylist(String playlistName) {
+        List<PlaylistVideo> listByPlaylistVideo = playlistVideoRepository.findByPlaylistName(playlistName);
 
         return "Number of videos inside playlist: " + listByPlaylistVideo.size();
     }
 
-    public String addVideoToPlaylist(String playlist, String videoName){
+    public String addVideoToPlaylist(String playlist, String videoName) {
 
         PlaylistName playlistName = playlistNameRepository.findOneByName(playlist);
         Video video = videoRepository.findOneByName(videoName);
@@ -71,7 +71,7 @@ public class PlaylistService {
         return "Success";
     }
 
-    public ListPlaylistByVideoNameAndChannelNameDto listByVideoNameAndChannelName (String videoName, String channelName){
+    public ListPlaylistByVideoNameAndChannelNameDto listByVideoNameAndChannelName(String videoName, String channelName) {
         List<PlaylistVideo> playlistVideos = playlistVideoRepository.findByVideoNameAndChannelName(videoName, channelName);
         ListPlaylistByVideoNameAndChannelNameDto listPlaylistByVideoNameAndChannelNameDtos = new ListPlaylistByVideoNameAndChannelNameDto();
         listPlaylistByVideoNameAndChannelNameDtos.setPlaylistName(playlistVideos.get(0).getPlaylistName().getPlaylistname());
@@ -80,12 +80,11 @@ public class PlaylistService {
         return listPlaylistByVideoNameAndChannelNameDtos;
     }
 
-    public List<ListPlaylistByChannelDto> listPlaylistNameByChannelName(String channelName){
+    public List<ListPlaylistByChannelDto> listPlaylistNameByChannelName(String channelName) {
         List<PlaylistVideo> playlistVideos = playlistVideoRepository.findPlaylistNameByChannelName(channelName);
         ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
         List<ListPlaylistByChannelDto> listPlaylistByChannelDtos = new ArrayList<>();
-        for (int i =0; i<playlistVideos.size(); i++)
-        {
+        for (int i = 0; i < playlistVideos.size(); i++) {
             listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
             listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
             listPlaylistByChannelDtos.add(listPlaylistByChannelDto);

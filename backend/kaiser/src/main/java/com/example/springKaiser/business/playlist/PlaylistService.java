@@ -1,10 +1,13 @@
 package com.example.springKaiser.business.playlist;
 
+import com.example.springKaiser.business.video.VideoDto;
 import com.example.springKaiser.repositories.*;
 import com.example.springKaiser.entities.*;
+import liquibase.pro.packaged.L;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -66,5 +69,27 @@ public class PlaylistService {
         playlistVideoRepository.save(playlistVideo);
 
         return "Success";
+    }
+
+    public ListPlaylistByVideoNameAndChannelNameDto listByVideoNameAndChannelName (String videoName, String channelName){
+        List<PlaylistVideo> playlistVideos = playlistVideoRepository.findByVideoNameAndChannelName(videoName, channelName);
+        ListPlaylistByVideoNameAndChannelNameDto listPlaylistByVideoNameAndChannelNameDtos = new ListPlaylistByVideoNameAndChannelNameDto();
+        listPlaylistByVideoNameAndChannelNameDtos.setPlaylistName(playlistVideos.get(0).getPlaylistName().getPlaylistname());
+        listPlaylistByVideoNameAndChannelNameDtos.setVideoName(playlistVideos.get(0).getVideo().getName());
+        listPlaylistByVideoNameAndChannelNameDtos.setChannelName(playlistVideos.get(0).getVideo().getChannel().getChannelName());
+        return listPlaylistByVideoNameAndChannelNameDtos;
+    }
+
+    public List<ListPlaylistByChannelDto> listPlaylistNameByChannelName(String channelName){
+        List<PlaylistVideo> playlistVideos = playlistVideoRepository.findPlaylistNameByChannelName(channelName);
+        ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
+        List<ListPlaylistByChannelDto> listPlaylistByChannelDtos = new ArrayList<>();
+        for (int i =0; i<playlistVideos.size(); i++)
+        {
+            listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
+            listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
+            listPlaylistByChannelDtos.add(listPlaylistByChannelDto);
+        }
+        return listPlaylistByChannelDtos;
     }
 }

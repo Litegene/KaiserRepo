@@ -82,12 +82,19 @@ public class PlaylistService {
 
     public List<ListPlaylistByChannelDto> listPlaylistNameByChannelName(String channelName){
         List<PlaylistVideo> playlistVideos = playlistVideoRepository.findPlaylistNameByChannelName(channelName);
-        ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
         List<ListPlaylistByChannelDto> listPlaylistByChannelDtos = new ArrayList<>();
-        for (int i =0; i<playlistVideos.size(); i++)
+//        for (int i =0; i<playlistVideos.size(); i++)
+//        {
+//            ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
+//            listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
+//            listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
+//            listPlaylistByChannelDtos.add(listPlaylistByChannelDto);
+//        }
+        for (PlaylistVideo playlistVideoIterator: playlistVideos)
         {
-            listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
-            listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
+            ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
+            listPlaylistByChannelDto.setPlaylistName(playlistVideoIterator.getPlaylistName().getPlaylistname());
+            listPlaylistByChannelDto.setChannelName(playlistVideoIterator.getVideo().getChannel().getChannelName());
             listPlaylistByChannelDtos.add(listPlaylistByChannelDto);
         }
         return listPlaylistByChannelDtos;

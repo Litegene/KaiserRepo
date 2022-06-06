@@ -1,6 +1,8 @@
 package com.example.springKaiser.controller;
 
 import com.example.springKaiser.business.playlist.AddVideoToPlayListRequestDto;
+import com.example.springKaiser.business.playlist.ListPlaylistByChannelDto;
+import com.example.springKaiser.business.playlist.ListPlaylistByVideoNameAndChannelNameDto;
 import com.example.springKaiser.business.playlist.PlaylistService;
 import com.example.springKaiser.entities.PlaylistName;
 import com.example.springKaiser.entities.PlaylistVideo;
@@ -52,5 +54,16 @@ public class PlaylistController {
     @PostMapping("/addVideoToPlaylist")
     public void addVideoToPlaylist(@RequestBody AddVideoToPlayListRequestDto addVideoToPlayListRequestDto){
         playlistService.addVideoToPlaylist(addVideoToPlayListRequestDto.getPlaylistName(), addVideoToPlayListRequestDto.getVideoName());
+    }
+
+    @GetMapping("/listByVideoNameAndChannelName")
+    public ListPlaylistByVideoNameAndChannelNameDto listPlaylistByVideoNameAndChannelName(@RequestBody ListPlaylistByVideoNameAndChannelNameDto listPlaylistByVideoNameAndChannelNameDto){
+        return playlistService.listByVideoNameAndChannelName(listPlaylistByVideoNameAndChannelNameDto.getVideoName(), listPlaylistByVideoNameAndChannelNameDto.getChannelName());
+    }
+
+    @GetMapping("/findPlaylistByChannelName/{channelName}")
+    public List<ListPlaylistByChannelDto> playlistNameByChannelName(@PathVariable String channelName){
+
+        return playlistService.listPlaylistNameByChannelName(channelName);
     }
 }

@@ -35,10 +35,10 @@ public class VideoController {
             return videoService.listVideoDto();
         }
 
-        @GetMapping("/listVideoByChannel/{channelName}")
-        public List<Video> listByChannel(@PathVariable String channelName){
-            return videoService.listByChannel(channelName);
-        }
+//        @GetMapping("/listVideoByChannel/{channelName}")
+//        public List<Video> listByChannel(@PathVariable String channelName){
+//            return videoService.listByChannel(channelName);
+//        }
 
         @GetMapping("/listVideoByChannelDto/{channelId}")
         public List<VideoDto> listByChannelDto(@PathVariable int channelId){

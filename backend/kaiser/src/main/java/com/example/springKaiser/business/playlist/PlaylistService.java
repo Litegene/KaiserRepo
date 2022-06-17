@@ -26,6 +26,9 @@ public class PlaylistService {
     @Autowired
     VideoRepository videoRepository;
 
+    @Autowired
+    PlaylistMapper playlistMapper;
+
 
     public void addPlaylist(PlaylistName playlistName) {
 
@@ -63,33 +66,17 @@ public class PlaylistService {
 
         PlaylistName playlistName = playlistNameRepository.findOneByName(playlist);
         Video video = videoRepository.findOneByName(videoName);
-        PlaylistVideo playlistVideo = new PlaylistVideo();
-        playlistVideo.setPlaylistName(playlistName);
-        playlistVideo.setVideo(video);
-        playlistVideoRepository.save(playlistVideo);
-
+        playlistVideoRepository.save(playlistMapper.addPlaylistAndVideo(playlistName, video));
         return "Success";
     }
 
     public ListPlaylistByVideoNameAndChannelNameDto listByVideoNameAndChannelName(String videoName, String channelName) {
         List<PlaylistVideo> playlistVideos = playlistVideoRepository.findByVideoNameAndChannelName(videoName, channelName);
-        ListPlaylistByVideoNameAndChannelNameDto listPlaylistByVideoNameAndChannelNameDtos = new ListPlaylistByVideoNameAndChannelNameDto();
-        listPlaylistByVideoNameAndChannelNameDtos.setPlaylistName(playlistVideos.get(0).getPlaylistName().getPlaylistname());
-        listPlaylistByVideoNameAndChannelNameDtos.setVideoName(playlistVideos.get(0).getVideo().getName());
-        listPlaylistByVideoNameAndChannelNameDtos.setChannelName(playlistVideos.get(0).getVideo().getChannel().getChannelName());
-        return listPlaylistByVideoNameAndChannelNameDtos;
+        return playlistMapper.playlistEntityToPlaylistDto(playlistVideos);
     }
 
     public List<ListPlaylistByChannelDto> listPlaylistNameByChannelName(String channelName) {
         List<PlaylistVideo> playlistVideos = playlistVideoRepository.findPlaylistNameByChannelName(channelName);
-        ListPlaylistByChannelDto listPlaylistByChannelDto = new ListPlaylistByChannelDto();
-        List<ListPlaylistByChannelDto> listPlaylistByChannelDtos = new ArrayList<>();
-        for (int i = 0; i < playlistVideos.size(); i++) {
-            listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
-            listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
-            listPlaylistByChannelDtos.add(listPlaylistByChannelDto);
-
-        }
-        return listPlaylistByChannelDtos;
+        return playlistMapper.playlistEntityToPlaylistChannelDto(playlistVideos);
     }
 }

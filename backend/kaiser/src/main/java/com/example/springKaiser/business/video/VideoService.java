@@ -20,6 +20,8 @@ public class VideoService {
     @Autowired
     ChannelRepository channelRepository;
 
+    @Autowired VideoMapper videoMapper;
+
 //    public String saveAVideo(Video video){
 //        return video.getName();
 //    }
@@ -78,24 +80,14 @@ public class VideoService {
 //    }
 //Homework
     public List<VideoDto> listByChannelDto(int channelId){
-        List<VideoDto> listByChannelNameDto = new ArrayList<>();
-        for (VideoDto videoDto : listVideoDto()){
-            if (videoDto.getChannelId() == channelId){
-                listByChannelNameDto.add(videoDto);
-            }
-        }
-        return listByChannelNameDto;
+//        List<VideoDto> videoDtos = videoMapper.findByChannelId(channelId, listVideoDto();
+//        return videoDtos;
+        //above code does the same as below
+        return videoMapper.findByChannelId(channelId, listVideoDto());
     }
 
     public String saveVideos(VideoDto videoDto){
-        Video video = new Video();
-        video.setName(videoDto.getName());
-
-        video.setComments(videoDto.getComments());
-        video.setLikes(videoDto.getLikes());
-        video.setViews(videoDto.getViews());
-        Channel channel = channelRepository.findById(videoDto.getChannelId()).get();
-        video.setChannel(channel);
+        Video video = videoMapper.videoDtoToVideoEntity(videoDto);
         videoRepository.save(video);
         return "Success " + video.getName();
     }

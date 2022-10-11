@@ -2,18 +2,14 @@ package com.example.springKaiser.SOLID.OpenClosedPrinciple.Service;
 
 import com.example.springKaiser.SOLID.OpenClosedPrinciple.BetterFilter;
 import com.example.springKaiser.SOLID.OpenClosedPrinciple.NameSpecification;
-import com.example.springKaiser.entities.Students;
+import com.example.springKaiser.school.entities.Students;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class StudentSpecificationServiceTest {
 

@@ -1,12 +1,12 @@
-package com.example.springKaiser.business.student;
+package com.example.springKaiser.school.student;
 
 
-import com.example.springKaiser.entities.Grades;
-import com.example.springKaiser.entities.Students;
-import com.example.springKaiser.entities.Teachers;
-import com.example.springKaiser.repositories.GradeRepository;
-import com.example.springKaiser.repositories.StudentsRepository;
-import com.example.springKaiser.repositories.TeacherRepository;
+import com.example.springKaiser.school.entities.Grades;
+import com.example.springKaiser.school.entities.Students;
+import com.example.springKaiser.school.entities.Teachers;
+import com.example.springKaiser.school.Repository.GradeRepository;
+import com.example.springKaiser.school.Repository.StudentsRepository;
+import com.example.springKaiser.school.Repository.TeacherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

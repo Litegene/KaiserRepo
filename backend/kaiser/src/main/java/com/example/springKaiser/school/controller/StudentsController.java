@@ -1,11 +1,10 @@
-package com.example.springKaiser.controller;
+package com.example.springKaiser.school.controller;
 
-import com.example.springKaiser.business.student.StudentDto;
-import com.example.springKaiser.business.student.StudentsService;
-import com.example.springKaiser.entities.Students;
-import com.example.springKaiser.repositories.StudentsRepository;
+import com.example.springKaiser.school.student.StudentDto;
+import com.example.springKaiser.school.student.StudentsService;
+import com.example.springKaiser.school.entities.Students;
+import com.example.springKaiser.school.Repository.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

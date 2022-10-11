@@ -1,18 +1,12 @@
 package com.example.springKaiser;
 
-import com.example.springKaiser.entities.Students;
-import com.example.springKaiser.entities.Subscriber;
-import com.example.springKaiser.entities.Video;
-import com.example.springKaiser.repositories.*;
+import com.example.springKaiser.school.Repository.GradeRepository;
+import com.example.springKaiser.school.Repository.TeacherRepository;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-
-import java.util.stream.Stream;
 
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 @Builder

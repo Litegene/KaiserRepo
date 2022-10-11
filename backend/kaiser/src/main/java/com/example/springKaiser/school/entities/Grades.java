@@ -1,4 +1,4 @@
-package com.example.springKaiser.entities;
+package com.example.springKaiser.school.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

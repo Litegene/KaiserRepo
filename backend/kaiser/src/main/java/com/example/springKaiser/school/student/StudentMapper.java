@@ -1,8 +1,6 @@
 package com.example.springKaiser.school.student;
 
-
-import com.example.springKaiser.business.student.StudentDto;
-import com.example.springKaiser.entities.Students;
+import com.example.springKaiser.school.entities.Students;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

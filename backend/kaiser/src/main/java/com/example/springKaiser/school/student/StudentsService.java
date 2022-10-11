@@ -31,6 +31,9 @@ public class StudentsService {
     @Autowired
     TeacherRepository teacherRepository;
 
+    @Autowired
+    StudentMapper studentMapper;
+
     final int gradeOne = 1;
 
     public String saveStudentOnGrade(){
@@ -85,6 +88,11 @@ public class StudentsService {
     public List<Students> listStudents() {
         List<Students> listStudents = studentsRepository.findAll();
         return listStudents;
+    }
+
+    public List<StudentDto> getListOfStudents() {
+        List<StudentDto> studentsDtos = studentMapper.toList(studentsRepository.findAll());
+        return studentsDtos;
     }
 
     public List<Students> listStudentsByGrade(int studentGrade) {

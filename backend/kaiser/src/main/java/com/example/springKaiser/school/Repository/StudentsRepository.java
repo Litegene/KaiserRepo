@@ -1,12 +1,9 @@
-package com.example.springKaiser.repositories;
+package com.example.springKaiser.school.Repository;
 
-import com.example.springKaiser.entities.Students;
-import com.example.springKaiser.entities.Teachers;
+import com.example.springKaiser.school.entities.Students;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.Optional;
 
 //Repositories manage the persisting (Saving) of data into our databases
 

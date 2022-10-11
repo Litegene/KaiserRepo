@@ -1,4 +1,4 @@
-package com.example.springKaiser.business.student;
+package com.example.springKaiser.school.student;
 
 public class StudentDto {
 

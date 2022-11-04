@@ -88,7 +88,6 @@ public class PlaylistService {
             listPlaylistByChannelDto.setPlaylistName(playlistVideos.get(i).getPlaylistName().getPlaylistname());
             listPlaylistByChannelDto.setChannelName(playlistVideos.get(i).getVideo().getChannel().getChannelName());
             listPlaylistByChannelDtos.add(listPlaylistByChannelDto);
-
         }
         return listPlaylistByChannelDtos;
     }

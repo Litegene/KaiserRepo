@@ -46,6 +46,11 @@ public class PlaylistController {
         return playlistService.listPlaylist();
     }
 
+    @GetMapping("/listPlaylistVideo")
+    public List<PlaylistVideo> listPlaylistVideo(){
+        return playlistService.listPlaylistVideo();
+    }
+
     @GetMapping("/findPlaylist/{playlistName}")
     public String playlistNames(@PathVariable String playlistName){
         return playlistService.countPlaylist(playlistName);
@@ -63,7 +68,6 @@ public class PlaylistController {
 
     @GetMapping("/findPlaylistByChannelName/{channelName}")
     public List<ListPlaylistByChannelDto> playlistNameByChannelName(@PathVariable String channelName){
-
         return playlistService.listPlaylistNameByChannelName(channelName);
     }
 }

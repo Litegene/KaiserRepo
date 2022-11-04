@@ -40,7 +40,7 @@ public class VideoService {
         return listVideo;
     }
 
-//    Homework
+//        Homework
     public List<VideoDto> listVideoDto() {
 //        List<VideoDto> videoDtoList = videoRepository.findAll().stream().map(this::convertDto).collect(Collectors.toList());
 //        return  videoDtoList;
@@ -50,7 +50,13 @@ public class VideoService {
 //            videoEntry.setLikes(9);
 //            return convertDto(videoEntry);
 //        }).collect(Collectors.toList());
-        return ((List<Video>) videoRepository.findAll()).stream().map(this::convertDto).collect(Collectors.toList());
+//        return ((List<Video>) videoRepository.findAll()).stream().map(this::convertDto).collect(Collectors.toList());
+        List<VideoDto> videoDtoList = new ArrayList<>();
+        List<Video> videoListFromRepository = videoRepository.findAll();
+        for (Video videoList : videoListFromRepository) {
+            videoDtoList.add(this.convertDto(videoList));
+        }
+        return videoDtoList;
     }
 
 //Homework
@@ -60,7 +66,7 @@ public class VideoService {
         dto.setComments(video.getComments());
         dto.setLikes(video.getLikes());
         dto.setViews(video.getViews());
-        Channel channel = channelRepository.findById(video.getChannel().getId()).get();
+//        Channel channel = channelRepository.findById(video.getChannel().getId()).get();
         dto.setChannelId(video.getChannel().getId());
         return dto;
     }

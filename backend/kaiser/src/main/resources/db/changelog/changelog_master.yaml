@@ -39,3 +39,7 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/18_playlist.sql
               - include:
                   file: classpath:db/changelog/scripts/19_extra_channel_data.sql
+              - include:
+                  file: classpath:db/changelog/scripts/20_tags.sql
+              - include:
+                  file: classpath:db/changelog/scripts/21_add_data.sql

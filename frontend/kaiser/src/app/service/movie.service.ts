@@ -1,24 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-export interface Book {
+export interface Movie {
   name;
-  price;
-  author;
+  releaseDate;
+  rating;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks() {
-    return this.http.get<any>('assets/books.json')
-    
+  getMovie() {
+    return this.http.get<any>('assets/movie.json')
       .toPromise()
-      .then(res => <Book[]>res.data)
+      .then(res => <Movie[]>res.data)
       .then(data => { return data; });
     }
 }

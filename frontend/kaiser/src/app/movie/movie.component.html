@@ -1,0 +1,17 @@
+<p>movie works!</p>
+<p-table [value]="movie">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Name</th>
+        <th>Release Date</th>
+        <th>Rating</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-movie>
+      <tr>
+        <td>{{movie.name}}</td>
+        <td>{{movie.releaseDate}}</td>
+        <td>{{movie.rating}}</td>
+      </tr>
+    </ng-template>
+  </p-table>

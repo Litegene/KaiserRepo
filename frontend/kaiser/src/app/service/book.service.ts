@@ -16,6 +16,7 @@ export class BookService {
 
   getBooks() {
     return this.http.get<any>('assets/books.json')
+    
       .toPromise()
       .then(res => <Book[]>res.data)
       .then(data => { return data; });

@@ -7,11 +7,15 @@ import { BookDataComponent } from './book-data/book-data.component';
 import {TableModule} from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AnimeComponent } from './anime/anime.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookDataComponent
+    BookDataComponent,
+    AnimeComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

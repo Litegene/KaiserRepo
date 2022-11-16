@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AnimeComponent } from './anime/anime.component';
 import { MovieComponent } from './movie/movie.component';
+import { StudentsGradeComponent } from './studentsGrade/studentsGrade.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BookDataComponent,
     AnimeComponent,
-    MovieComponent
+    MovieComponent,
+    StudentsGradeComponent
   ],
   imports: [
     BrowserModule,

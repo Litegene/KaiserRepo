@@ -1,0 +1,19 @@
+<p>STUDENTS GRADE TIME</p>
+<p-table [value]="studentsGradeDto">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Grade ID</th>
+        <th>homeGradeTeacherId</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-sg>
+      <tr>
+        <td>{{sg.email}}</td>
+        <td>{{sg.name}}</td>
+        <td>{{sg.gradeId}}</td>
+        <td>{{sg.homeGradeTeacherId}}</td>
+      </tr>
+    </ng-template>
+  </p-table>

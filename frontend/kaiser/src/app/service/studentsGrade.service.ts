@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-export interface StudentsGradeDto {
-  name: String;
-  email: String;
-  gradeId: number;
-  homeGradeTeacherId: number;
-}
-
 @Injectable({
   providedIn: 'root'
 })

@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { takeUntil } from 'rxjs';
-import { StudentsGradeDto, StudentsGradeService } from '../service/studentsGrade.service';
+import { StudentsGradeService } from '../service/studentsGrade.service';
+import { StudentGradeDto } from '../model/studentGradeModel';
+
 
 @Component({
   selector: 'app-studentsGrade',
@@ -8,16 +10,11 @@ import { StudentsGradeDto, StudentsGradeService } from '../service/studentsGrade
   styleUrls: ['./studentsGrade.component.css']
 })
 export class StudentsGradeComponent implements OnInit {
-  
-  // destroy$: Subject<boolean> = new Subject<boolean>(); 
-
-  studentsGradeDto: StudentsGradeDto[];
+  studentsGradeDto: StudentGradeDto[];
   
   constructor(private studentsGradeService: StudentsGradeService) { }
   
   ngOnInit(): void {
-    // this.studentsGradeDto = this.studentsGradeService.getStudentsDtoList();
-      // then(studentsGradeServiceResult => this.studentsGradeDto = studentsGradeServiceResult);
       this.studentsGradeDto = [];
       this.getStudentsGradeDto();
   }
@@ -27,17 +24,13 @@ export class StudentsGradeComponent implements OnInit {
 		let stud = studentsGradeServiceResult;
 
     studentsGradeServiceResult.forEach((element: { email: string; name: string; gradeId: number; homeGradeTeacherId: number; }) => {
-      let sgd = {
-        email: "",
-        name: '',
-        gradeId: 0,
-        homeGradeTeacherId: 0,
+      let studentGradeDtoObject = {
+        email: element.email,
+        name: element.name,
+        gradeId: element.gradeId,
+        homeGradeTeacherId: element.homeGradeTeacherId,
       };
-      sgd.email = element.email;
-      sgd.name = element.name;
-      sgd.gradeId = element.gradeId;
-      sgd.homeGradeTeacherId = element.homeGradeTeacherId;
-      this.studentsGradeDto.push(sgd);
+      this.studentsGradeDto.push(studentGradeDtoObject);
     });
     
     });

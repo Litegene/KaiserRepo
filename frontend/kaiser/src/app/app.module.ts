@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnimeComponent } from './anime/anime.component';
 import { MovieComponent } from './movie/movie.component';
 import { StudentsGradeComponent } from './studentsGrade/studentsGrade.component';
+import { TeacherComponent } from './teacher/teacher.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { StudentsGradeComponent } from './studentsGrade/studentsGrade.component'
     BookDataComponent,
     AnimeComponent,
     MovieComponent,
-    StudentsGradeComponent
+    StudentsGradeComponent,
+    TeacherComponent
   ],
   imports: [
     BrowserModule,

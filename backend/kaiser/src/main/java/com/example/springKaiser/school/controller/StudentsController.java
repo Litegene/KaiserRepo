@@ -61,8 +61,8 @@ public class StudentsController {
     }
 
     @GetMapping("/getStudentDtoList")
-    public List<StudentDto> getStudentsDtos() {
-        return studentsService.getListOfStudents();
+        public List<StudentDto> getStudentsDtos() {
+            return studentsService.getListOfStudents();
     }
 
 }

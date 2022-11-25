@@ -1,0 +1,28 @@
+<p>teacher works!</p>
+
+<div *ngIf="enableTeacherInfo">
+    grades: {{grade}}
+    <br>
+    name: {{name}}
+    <br>
+    surname: {{surname}}    
+</div>
+
+<button type="button"
+    (click)="switchTeacherInfo()">
+    Switch Teacher On or Off!
+</button>
+<br><br>
+
+    <!-- <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="newTeacherName" value="John" [(ngModel)]="newTeacherName" "><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="newTeacherSurname" value="Doe" [(ngModel)]="newTeacherSurname" "><br><br>
+    
+    <input type="submit" (click)="saveTeacher()" value="Submit"> -->
+
+<!-- <button type="button"
+    (click)="switchTeacherInfo()">
+    Save Teacher Form.
+</button> -->
+

@@ -1,6 +1,7 @@
 package com.example.springKaiser.controller;
 
 import com.example.springKaiser.business.video.VideoDto;
+import com.example.springKaiser.business.video.VideoLikeDto;
 import com.example.springKaiser.business.video.VideoService;
 import com.example.springKaiser.entities.Video;
 import com.example.springKaiser.repositories.VideoRepository;
@@ -31,8 +32,12 @@ public class VideoController {
 
         @GetMapping("/videoListDto")
         public List<VideoDto> listVideoDto() {
-
             return videoService.listVideoDto();
+        }
+
+        @GetMapping("/videoLikeListDto")
+        public List<VideoLikeDto> listVideoLikeDto() {
+            return videoService.listVideoLikesDto();
         }
 
 //        @GetMapping("/listVideoByChannel/{channelName}")

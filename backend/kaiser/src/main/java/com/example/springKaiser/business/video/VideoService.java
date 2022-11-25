@@ -59,6 +59,21 @@ public class VideoService {
         return videoDtoList;
     }
 
+    public List<VideoLikeDto> listVideoLikesDto() {
+        List<VideoLikeDto> videoLikeDtoList = new ArrayList<>();
+        List<Video> videoListFromRepository = videoRepository.findAll();
+        for (Video videoList : videoListFromRepository) {
+            videoLikeDtoList.add(this.convertLikeDto(videoList));
+        }
+        return videoLikeDtoList;
+    }
+    private VideoLikeDto convertLikeDto(Video video){
+        VideoLikeDto dto = new VideoLikeDto();
+        dto.setName(video.getName());
+        dto.setLikes(video.getLikes());
+//        Channel channel = channelRepository.findById(video.getChannel().getId()).get();
+        return dto;
+    }
 //Homework
     private VideoDto convertDto(Video video){
         VideoDto dto = new VideoDto();

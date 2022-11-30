@@ -1,0 +1,22 @@
+<p>videolikes works!</p>
+<div *ngIf="enableVideoInfo">
+<p-table [value]="videoLikesDto">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Video Name</th>
+        <th>Likes</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-videoLikes>
+      <tr>
+        <td>{{videoLikes.name}}</td>
+        <td>{{videoLikes.likes}}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+  <button type="button"
+    (click)="switchVideoLikesInfo()">
+    Switch Table On or Off!
+</button>
+<br><br>

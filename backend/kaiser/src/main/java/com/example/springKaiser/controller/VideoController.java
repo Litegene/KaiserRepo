@@ -26,7 +26,6 @@ public class VideoController {
 
         @GetMapping("/videoList")
         public List<Video> listVideo() {
-
             return videoService.listVideo();
         }
 

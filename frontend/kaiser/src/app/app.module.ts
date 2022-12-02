@@ -11,6 +11,7 @@ import { AnimeComponent } from './anime/anime.component';
 import { MovieComponent } from './movie/movie.component';
 import { StudentsGradeComponent } from './studentsGrade/studentsGrade.component';
 import { TeacherComponent } from './teacher/teacher.component';
+import { VideolikesComponent } from './videolikes/videolikes.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { TeacherComponent } from './teacher/teacher.component';
     AnimeComponent,
     MovieComponent,
     StudentsGradeComponent,
-    TeacherComponent
+    TeacherComponent,
+    VideolikesComponent
   ],
   imports: [
     BrowserModule,

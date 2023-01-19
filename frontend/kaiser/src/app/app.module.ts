@@ -12,6 +12,8 @@ import { MovieComponent } from './movie/movie.component';
 import { StudentsGradeComponent } from './studentsGrade/studentsGrade.component';
 import { TeacherComponent } from './teacher/teacher.component';
 import { VideolikesComponent } from './videolikes/videolikes.component';
+import {ButtonModule} from 'primeng/button';
+import {CheckboxModule} from 'primeng/checkbox';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { VideolikesComponent } from './videolikes/videolikes.component';
     AppRoutingModule,
     TableModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

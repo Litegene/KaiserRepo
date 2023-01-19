@@ -14,6 +14,10 @@ export class VideolikesComponent implements OnInit {
   videoLikeCounter: number;
   videoLikesDto: videoLikesDto[];
   enableVideoInfo: boolean;
+  arraySize: number;
+  likeCounter: number;
+  mycheckbox: boolean;
+  selectedValues: any[];
 
   ngOnInit(): void {
     this.enableVideoInfo = true;
@@ -29,11 +33,12 @@ export class VideolikesComponent implements OnInit {
   getVideoLikesDto() {
     this.videoLikeService.getVideoList().subscribe((videoLikeServiceResult: any) => {
 		let vid = videoLikeServiceResult;
-
-    videoLikeServiceResult.forEach((element: { name: string; likes: number;}) => {
+    
+    videoLikeServiceResult.forEach((element: { name: string; likes: number}) => {
       let videoLikesDtoObject = {
         name: element.name,
         likes: element.likes,
+        selectedLikes: false 
       };
       this.videoLikesDto.push(videoLikesDtoObject);
     });
@@ -50,4 +55,17 @@ export class VideolikesComponent implements OnInit {
     }
   }
 
-}
+  totalLikes(event:any, likesCounter:any){
+    console.log('total button is working')
+    console.log(this.videoLikesDto, 'testing videolikesDto array')
+    console.log(event.checked)
+    // this.likeCounter = 0;
+    // this.arraySize = this.videoLikesDto.length;
+    // for (let i =0; i < this.arraySize; i++) {
+      if(event.checked){
+        this.selectedValues.push(likesCounter);
+      } else {
+        this.selectedValues = this.selectedValues.filter(c => c.id != likesCounter.id);
+      }
+    }
+  }

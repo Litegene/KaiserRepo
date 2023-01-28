@@ -20,7 +20,7 @@
         <td>{{videoLikes.likes}}</td>
         <td> 
           <div class="field-checkbox" class="my-center-text">
-            <p-checkbox [(ngModel)]="videoLikes.selectedLikes" (onChange)="totalLikes($event, videoLikes.likes)" name="group1" value={{videoLikes.likes}} ></p-checkbox>
+            <p-checkbox [(ngModel)]="videoLikes.selectedLikes" (onChange)="totalLikes($event, videoLikes.likes)" name="group1" [binary]=true ></p-checkbox>
             <!-- <p-checkbox [(ngModel)]="videoLikes.selectedLikes" (onChange)="totalLikes()" name="group1" value=true></p-checkbox> -->
             <!-- <p-checkbox
               [(ngModel)]="videoLikes.selectedLikes"
@@ -33,11 +33,15 @@
         </td>
       </tr>
     </ng-template>
-    <ng-template pTemplate="summary">
-      <div class="flex align-items-center justify-content-between">
+    <ng-template pTemplate="footer">
+      <!-- <div class="flex align-items-center justify-content-between"> -->
         <!-- In total there are {{products ? products.length : 0 }} products. -->
-        Total Likes
-      </div>
+        <tr>
+          <td>Total Likes</td>
+          <td>{{totalCounter}}</td>
+          <td></td>
+        </tr>
+      <!-- </div> -->
   </ng-template>
 </p-table>
 </div>

@@ -18,7 +18,7 @@
       <tr>
         <td>{{videoLikes.name}}</td>
         <td>{{videoLikes.likes}}</td>
-        <td> 
+        <td>
           <div class="field-checkbox" class="my-center-text">
             <p-checkbox [(ngModel)]="videoLikes.selectedLikes" (onChange)="totalLikes($event, videoLikes.likes)" name="group1" [binary]=true></p-checkbox>
           </div>
@@ -36,4 +36,5 @@
 </div>
 <p-button label="Switch Table On or Off!" (click)="switchVideoLikesInfo()" style="float: left;"></p-button>
 <p-button label="Count Likes" (click)="countLikesInfo()" style="float: right;"></p-button>
+
 <br><br>

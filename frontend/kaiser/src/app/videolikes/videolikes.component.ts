@@ -19,16 +19,13 @@ export class VideolikesComponent implements OnInit {
   mycheckbox: boolean;
   selectedValues: any[];
   totalCounter = 0;
+  newTotalCounter = 0;
 
   ngOnInit(): void {
     this.enableVideoInfo = true;
 
     this.videoLikesDto = [];
     this.getVideoLikesDto();
-    // this.videoLikeService.getVideoList().subscribe((videoResult: any) =>{
-    //   this.videoName=videoResult[this.videoLikeCounter].videoName;
-    //   this.videoLikeCounter=videoResult[this.videoLikeCounter].videoLikeCounter;
-    // })
   }
 
   getVideoLikesDto() {
@@ -56,19 +53,8 @@ export class VideolikesComponent implements OnInit {
     }
   }
 
-  totalLikes(event:any, likesCounter:any){
-    // console.log('total button is working')
-    // console.log(this.videoLikesDto, 'testing videolikesDto array')
-    // console.log(event.checked)
 
-    // this.likeCounter = 0;
-    // this.arraySize = this.videoLikesDto.length;
-    // for (let i =0; i < this.arraySize; i++) {
-      // if(event.checked){
-        // this.selectedValues.push(likesCounter);  -This is broken
-      // } else {
-        // this.selectedValues = this.selectedValues.filter(c => c.id != likesCounter.id); -This is broken
-      // }
+  totalLikes(event:any, likesCounter:any){
       this.countVideoLikes();
     }
 
@@ -80,4 +66,11 @@ export class VideolikesComponent implements OnInit {
         }
       });
     }
+
+    countLikesInfo() {
+      console.log('count likes button is working');
+      this.newTotalCounter = 0;
+      this.newTotalCounter+=this.totalCounter;
+    }
+
   }

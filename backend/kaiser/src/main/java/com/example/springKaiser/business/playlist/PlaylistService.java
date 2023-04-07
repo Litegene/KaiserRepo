@@ -67,7 +67,6 @@ public class PlaylistService {
         playlistVideo.setPlaylistName(playlistName);
         playlistVideo.setVideo(video);
         playlistVideoRepository.save(playlistVideo);
-
         return "Success";
     }
 

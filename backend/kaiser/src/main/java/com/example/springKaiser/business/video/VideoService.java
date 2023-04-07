@@ -42,21 +42,13 @@ public class VideoService {
 
 //        Homework
     public List<VideoDto> listVideoDto() {
-//        List<VideoDto> videoDtoList = videoRepository.findAll().stream().map(this::convertDto).collect(Collectors.toList());
-//        return  videoDtoList;
-
-//        Lambda example
-//        videoRepository.findAll().stream().map(videoEntry->{
-//            videoEntry.setLikes(9);
-//            return convertDto(videoEntry);
-//        }).collect(Collectors.toList());
-//        return ((List<Video>) videoRepository.findAll()).stream().map(this::convertDto).collect(Collectors.toList());
         List<VideoDto> videoDtoList = new ArrayList<>();
         List<Video> videoListFromRepository = videoRepository.findAll();
         for (Video videoList : videoListFromRepository) {
             videoDtoList.add(this.convertDto(videoList));
         }
         return videoDtoList;
+
     }
 
     public List<VideoLikeDto> listVideoLikesDto() {
@@ -85,18 +77,6 @@ public class VideoService {
         dto.setChannelId(video.getChannel().getId());
         return dto;
     }
-
-//    no longer working as channel name (string) has been replaced with a channel object
-
-//    public List<Video> listByChannel(String channelName){
-//        List<Video> listByChannelName = new ArrayList<>();
-//        for (Video video : listVideo()){
-//            if (video.getChannel().equals(channelName)){
-//                listByChannelName.add(video);
-//            }
-//        }
-//        return listByChannelName;
-//    }
 //Homework
     public List<VideoDto> listByChannelDto(int channelId){
         List<VideoDto> listByChannelNameDto = new ArrayList<>();

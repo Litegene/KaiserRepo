@@ -43,3 +43,5 @@ databaseChangeLog:
                   file: classpath:db/changelog/scripts/20_tags.sql
               - include:
                   file: classpath:db/changelog/scripts/21_add_data.sql
+              - include:
+                  file: classpath:db/changelog/scripts/22_add_more_tag_data.sql

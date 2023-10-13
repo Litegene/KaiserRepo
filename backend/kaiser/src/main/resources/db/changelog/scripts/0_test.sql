@@ -1,1 +1,0 @@
-CREATE TABLE IF NOT EXISTS test_table (test_id INT, test_column VARCHAR, PRIMARY KEY (test_id))

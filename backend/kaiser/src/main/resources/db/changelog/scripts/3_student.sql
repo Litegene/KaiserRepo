@@ -1,1 +1,0 @@
-CREATE TABLE if not exists students (id INT , name VARCHAR, email VARCHAR, PRIMARY KEY (id))

@@ -1,1 +1,0 @@
-SELECT setval('student_id_seq', 3, true);

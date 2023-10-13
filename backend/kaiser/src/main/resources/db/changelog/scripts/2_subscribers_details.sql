@@ -1,1 +1,0 @@
-CREATE TABLE if not exists subscriberTable (subscriber_id INT, subscriber_name VARCHAR, PRIMARY KEY (subscriber_id))
